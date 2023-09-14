@@ -1,3 +1,6 @@
+<?php session_start();
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,49 +13,15 @@
     <?php include 'includes/login.php'; ?>
     <?php include 'includes/sigin.php'; ?>
 
+    <?php
 
-   
-    <h2>Connexion</h2>
-    <form method="post">
-        <label for="email">Email :</label>
-        <input type="email" id="lemail" name="lemail" required><br><br>
+if (isset($_SESSION['email'])){
+    ?>
 
-        <label for="password">Mot de passe :</label>
-        <input type="password" id="lpassword" name="lpassword" required><br><br>
+<h1> bienvenue le ratus economicus</h1>
+<p> votre email est / <?= $_SESSION['email'];?> </p>
 
-        <input type="submit" id="formlogin" name="formlogin" value="Se Connecter">
-    </form>
-
-
-    
-
-    <h2>Inscription</h2>
-    <form  method="post">
-        <label for="nom">Nom :</label>
-        <input type="text" id="nom" name="nom" required><br><br>
-
-        <label for="prenom">Prénom :</label>
-        <input type="text" id="prenom" name="prenom" required><br><br>
-
-        <label for="email">Email :</label>
-        <input type="email" id="email" name="email" required><br><br>
-
-        <label for="cemail">Confirmation Email :</label>
-        <input type="email" id="cemail" name="cemail" required><br><br>
-
-        <label for="password">Mot de passe :</label>
-        <input type="password" id="password" name="password" required><br><br>
-
-        <label for="cpassword">Confirmation Mot de passe :</label>
-        <input type="password" id="cpassword" name="cpassword" required><br><br>
-
-        <input type="submit" name="formsend" id="formsend" value="S'inscrire">
-    </form>
-
-
-
-
-    <h1>Enregistrement de Dépenses</h1>
+<h1>Enregistrement de Dépenses</h1>
     <form action="traitement.php" method="post">
 
     <label for="titre_depense">Titre de la dépense :</label>
@@ -105,5 +74,63 @@
 
         <input type="submit" value="Enregistrer">
     </form>
+    <br> <br>
+
+
+    <?php
+}
+
+
+?>
+
+
+
+   
+    <h2>Connexion</h2>
+    <form method="post">
+        <label for="email">Email :</label>
+        <input type="email" id="lemail" name="lemail" required><br><br>
+
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="lpassword" name="lpassword" required><br><br>
+
+        <input type="submit" id="formlogin" name="formlogin" value="Se Connecter">
+    </form>
+
+
+    
+
+    <h2>Inscription</h2>
+    <form  method="post">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required><br><br>
+
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" required><br><br>
+
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="cemail">Confirmation Email :</label>
+        <input type="email" id="cemail" name="cemail" required><br><br>
+
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="cpassword">Confirmation Mot de passe :</label>
+        <input type="password" id="cpassword" name="cpassword" required><br><br>
+
+        <input type="submit" name="formsend" id="formsend" value="S'inscrire">
+    </form>
+
+
+
+
+    
+
+
+
+
+
 </body>
 </html>
