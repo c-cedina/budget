@@ -1,0 +1,55 @@
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    color: black;
+}
+
+h1 {
+    color: #070920;
+}
+
+form {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    color: #070920;
+}
+
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #070920;
+    border-radius: 5px;
+    color: #070920;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+    color: #070920;
+}
+
+input[type="submit"] {
+    background-color: #070920;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #333; /* Change the color on hover if desired */
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
