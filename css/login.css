@@ -1,0 +1,49 @@
+/* Styles pour le conteneur du formulaire */
+#login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Style pour le titre h2 */
+#login h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Styles pour les étiquettes et les champs de saisie */
+#login label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#login input[type="email"],
+#login input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+/* Style pour le bouton de soumission */
+#formlogin {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+}
+#login p{
+    margin-top: 20px;
+}

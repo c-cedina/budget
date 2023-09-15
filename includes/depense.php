@@ -13,7 +13,7 @@ if (isset($_POST['formenregistrer'])) {
         <script>alert("essaie")</script>
         <?php
 
-        
+
 
         if (isset($_POST['formenregistrer'])) {
             // Autres traitements de formulaire ici...
@@ -51,13 +51,3 @@ if (isset($_POST['formenregistrer'])) {
 
 
 ?>
-
-
-
-<!-- name="titre_depense"
-name="commentaire_depense"
-name="montant"
-name="categorie"
-name="achat_necessaire"
-name="date_type"
-name="formenregistrer" -->

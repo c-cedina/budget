@@ -1,0 +1,60 @@
+/* Styles pour le conteneur du formulaire d'inscription */
+#signup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 400px;
+    width: 100%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Style pour le titre h2 */
+#signup h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Styles pour les étiquettes et les champs de saisie */
+#signup label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#signup input[type="text"],
+#signup input[type="email"],
+#signup input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+/* Style pour le bouton de soumission */
+#formsend {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Styles pour les messages d'erreur */
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+#signup p{
+    margin-top: 20px;
+}

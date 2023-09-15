@@ -77,26 +77,28 @@ if (isset($_POST['formsend'])) {
 ?>
 
 
+<div id="signup" class="form-container">
+	<h2>Inscription</h2>
+	<form method="post">
+		<label for="nom">Nom :</label>
+		<input type="text" id="nom" name="nom" required><br><br>
 
-<h2>Inscription</h2>
-<form method="post">
-	<label for="nom">Nom :</label>
-	<input type="text" id="nom" name="nom" required><br><br>
+		<label for="prenom">Prénom :</label>
+		<input type="text" id="prenom" name="prenom" required><br><br>
 
-	<label for="prenom">Prénom :</label>
-	<input type="text" id="prenom" name="prenom" required><br><br>
+		<label for="email">Email :</label>
+		<input type="email" id="email" name="email" required><br><br>
 
-	<label for="email">Email :</label>
-	<input type="email" id="email" name="email" required><br><br>
+		<label for="cemail">Confirmation Email :</label>
+		<input type="email" id="cemail" name="cemail" required><br><br>
 
-	<label for="cemail">Confirmation Email :</label>
-	<input type="email" id="cemail" name="cemail" required><br><br>
+		<label for="password">Mot de passe :</label>
+		<input type="password" id="password" name="password" required><br><br>
 
-	<label for="password">Mot de passe :</label>
-	<input type="password" id="password" name="password" required><br><br>
+		<label for="cpassword">Confirmation Mot de passe :</label>
+		<input type="password" id="cpassword" name="cpassword" required><br><br>
 
-	<label for="cpassword">Confirmation Mot de passe :</label>
-	<input type="password" id="cpassword" name="cpassword" required><br><br>
-
-	<input type="submit" name="formsend" id="formsend" value="S'inscrire">
-</form>
+		<input type="submit" name="formsend" id="formsend" value="S'inscrire">
+	</form>
+	<p> Vous avez de compte deja un compte? <br> cliquez sur connexion si desssous </p>
+</div>
