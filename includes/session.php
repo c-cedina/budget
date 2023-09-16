@@ -2,8 +2,8 @@
 
 if (isset($_SESSION['email'])) {
 
-    include 'includes/requetes_session.php'
-        ?>
+    include 'includes/requetes_session.php';
+    ?>
     <script>
         signupDiv.style.display = "none";
         loginDiv.style.display = "none";
@@ -58,10 +58,149 @@ if (isset($_SESSION['email'])) {
         <p>
             Tu as depensé
             <?= $somme_total_d['valeur'] ?>
-            € depuis ton inscription le
+            € au total <br>
+            Tu nous as rejoint la team des rats depuis le
             <?= $_SESSION['date_creation'] ?>
+            <br><br>
+
+            <!-- formulaire recherche -->
+
+        <form method="post">
+            tu veux savoir combien as tu dépensé au mois de
+            <select id="mois_dps" name="mois_dps">
+
+                <option value="01%">janvier</option>
+                <option value="02%">fevrier</option>
+                <option value="03%">mars</option>
+                <option value="04%">avril</option>
+                <option value="05%">mai</option>
+                <option value="06%">juin</option>
+                <option value="07%">juillet</option>
+                <option value="08%">aout</option>
+                <option value="09%">septembre</option>
+                <option value="10%">octobre</option>
+                <option value="11%">novembre</option>
+                <option value="12%">decembre</option>
+                <option value="%"> n'importe quel mois</option>
+
+            </select>
+            en
+            <select id="annee_dps" name="annee_dps">
+
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+
+            </select>
+            dans la catégorie
+            <select id="categorie_dps" name="categorie_dps">
+
+                <option value="activité">activité</option>
+                <option value="cadeaux">cadeaux</option>
+                <option value="habit">habit</option>
+                <option value="abonnements">abonnements</option>
+                <option value="objet_numerique">objet Numérique</option>
+                <option value="objet_quotidien">objet du Quotidien</option>
+                <option value="nourriture">nourriture</option>
+                <option value="transport">transport</option>
+                <option value="%"> n'importe quel categorie</option>
+
+            </select>
+            et
+            <select id="achat_necessaire_dps" name="achat_necessaire_dps" required>
+
+                <option value="necessaire">Nécessaire</option>
+                <option value="non_necessaire">non nécessaire</option>
+                <option value="n%">sans connaitre la nécessité</option>
+
+            </select>
+            ?
+
+            <input type="submit" id="formrenseignement" name="formrenseignement" value="Rechercher">
+
+
+        </form>
+        <br>
+
+        <?php include 'includes/recherche_dps.php'; ?>
+
+        <?php
+        // mise en place des valeurs
+        if ($rp['valeur'] == '') {
+            $rp['valeur'] = '0';
+        }
+        if ($annee_dps != '?') {
+            $annee_dps = substr($annee_dps, 0, 4);
+        }
+        if ($categorie_dps == '%') {
+            $categorie_dps = "n'importe quel categorie";
+        }
+        if ($achat_necessaire_dps == 'n%') {
+            $achat_necessaire_dps = "sans connaitre la nécessité";
+        }
+
+
+        // Mise en place des mois
+    
+        if ($mois_dps == '01%') {
+            $mois_dps = 'janvier';
+        }
+        if ($mois_dps == '02%') {
+            $mois_dps = 'fevrier';
+        }
+        if ($mois_dps == '03%') {
+            $mois_dps = 'mars';
+        }
+        if ($mois_dps == '04%') {
+            $mois_dps = 'avril';
+        }
+        if ($mois_dps == '05%') {
+            $mois_dps = 'mai';
+        }
+        if ($mois_dps == '06%') {
+            $mois_dps = 'juin';
+        }
+        if ($mois_dps == '07%') {
+            $mois_dps = 'juillet';
+        }
+        if ($mois_dps == '08%') {
+            $mois_dps = 'août';
+        }
+        if ($mois_dps == '09%') {
+            $mois_dps = 'septembre';
+        }
+        if ($mois_dps == '010%') {
+            $mois_dps = 'octobre';
+        }
+        if ($mois_dps == '011%') {
+            $mois_dps = 'novembre';
+        }
+        if ($mois_dps == '12%') {
+            $mois_dps = 'decembre';
+        }
+        if ($mois_dps == '%') {
+            $mois_dps = "n'importe lequel mois";
+        }
+        ?>
+        tu as dépensé
+
+        <?= $rp['valeur'] ?>
+        € au mois de
+        <?= $mois_dps ?>
+        en
+        <?= $annee_dps ?>
+        dans la catégorie
+        <?= $categorie_dps ?>
+        et
+        <?= $achat_necessaire_dps ?>
+
         </p>
+
     </div>
+
+
+    <!-- Formulaire ajout depense -->
     <div id=ajtdepense>
         <h1>Enregistrement de Dépenses</h1>
         <form method="post">
@@ -116,7 +255,8 @@ if (isset($_SESSION['email'])) {
 
 
         </form>
-        <br> <br>
+        <br>
+
     </div>
 
     <?php
