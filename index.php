@@ -23,7 +23,7 @@
     </div>
     <script src="js/siglog.js"></script>
     <?php include 'includes/session.php'; ?>
-    <?php include 'includes/depense.php'; ?>
+
 
 
 

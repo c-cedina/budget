@@ -33,5 +33,9 @@ body {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     background-color: #0000A0;
 }
+#deco {
+  text-align: right;
+  margin: 10px;
+}
 
 

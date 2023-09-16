@@ -16,52 +16,51 @@ if (isset($_POST['formsend'])) {
 	if (!empty($password) && !empty($email) && !empty($cpassword)) {
 
 		if ($email == $cemail)
-		?>
-		<script>alert("email identique ")</script>
-		<?php
-		if ($password == $cpassword) {
 
-			$options = [
-				'cost' => 12,
-			];
-			$hashpass = password_hash("$password", PASSWORD_BCRYPT, $options);
+			if ($password == $cpassword) {
+
+				$options = [
+					'cost' => 12,
+				];
+				$hashpass = password_hash("$password", PASSWORD_BCRYPT, $options);
 
 
-			global $db;
+				global $db;
 
-			$c = $db->prepare("SELECT email FROM utilisateurs WHERE email = :email");
-			$c->execute(['email' => $email]);
-			$result = $c->rowCount();
-			?>
-			<script>alert("mot de passe identique ")</script>
-			<?php
-			if ($result == 0) {
+				$c = $db->prepare("SELECT email FROM utilisateurs WHERE email = :email");
+				$c->execute(['email' => $email]);
+				$result = $c->rowCount();
 
-				$q = $db->prepare("INSERT INTO utilisateurs(prenom,nom,email,password) VALUES(:prenom,:nom,:email,:password)");
-				$q->execute([
-					'nom' => $nom,
-					'prenom' => $prenom,
-					'email' => $email,
-					'password' => $hashpass
+				if ($result == 0) {
 
-				]);
-				?>
-				<script>alert("reussi")</script>
-				<?php
+					$q = $db->prepare("INSERT INTO utilisateurs(prenom,nom,email,password) VALUES(:prenom,:nom,:email,:password)");
+					$q->execute([
+						'nom' => $nom,
+						'prenom' => $prenom,
+						'email' => $email,
+						'password' => $hashpass
+
+					]);
+					?>
+					<script>alert("compte créer")</script>
+					<?php
+
+
+				} else {
+					?>
+					<script>alert("email deja utiliser")</script>
+					<?php
+				}
 
 
 			} else {
-				echo "Un email existe deja!";
+				?>
+				<script>alert("mot de passe different")</script>
+				<?php
 			}
 
 
-		} else {
-			echo "Mot de passe different!";
-		}
-
-
-	} else
-		echo "Les champs ne sont pas tous remplies";
+	}
 
 
 

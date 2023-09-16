@@ -4,14 +4,10 @@
 if (isset($_POST['formenregistrer'])) {
 
     extract($_POST);
-    ?>
-    <script>alert("debut")</script>
-    <?php
+
     if (!empty($titre_depense) && !empty($montant)) {
 
-        ?>
-        <script>alert("essaie")</script>
-        <?php
+
 
 
 
@@ -42,12 +38,36 @@ if (isset($_POST['formenregistrer'])) {
 
 
         ]);
-        echo $date_type;
+
+        $e = $db->prepare("SELECT id FROM utilisateurs WHERE email = :email");
+        $e->execute(['email' => $_SESSION['email']]);
+        $id = $e->fetch();
+
+        $qr = $db->prepare("SELECT SUM(montant) as total_depenses FROM depense WHERE id_utilisateurs = :id_utilisateurs");
+        $qr->execute(['id_utilisateurs' => $id['id']]);
+        $resultat = $qr->fetch();
+        $somme_total_d['valeur'] = $resultat['total_depenses'];
+
+
+
+
+        ?>
+
+
+        <script>alert("dépense envoyée")</script>
+        <?php
+
+
+
     } else {
-        echo "erreur mot de passe";
+        ?>
+        <script>alert("tout les champs ne sont pas remplies ")</script>
+        <?php
     }
 
 }
+
+
 
 
 ?>

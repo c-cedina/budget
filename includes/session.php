@@ -1,9 +1,45 @@
 <?php
 
 if (isset($_SESSION['email'])) {
-    include 'includes/requetes_session.php'
 
+    include 'includes/requetes_session.php'
         ?>
+    <script>
+        signupDiv.style.display = "none";
+        loginDiv.style.display = "none";
+        btnSignup.style.display = "none";
+        btnLogin.style.display = "none";
+    </script>
+    <header>
+        <div id="deco">
+            <a href="logout.php">
+                <button id="btnDeco" class="btn">Deconnexion</button>
+            </a>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#btnDeco").click(function () {
+                    // Envoi d'une demande AJAX au serveur pour supprimer les variables de session
+                    $.ajax({
+                        url: "includes/deconnexion.php", // Le script serveur qui gère la suppression des variables de session
+                        method: "POST",        // Vous pouvez utiliser POST ou GET selon votre configuration
+                        success: function (data) {
+                            // Actualiser la page pour que l'utilisateur soit déconnecté
+                            window.location.href = "http://localhost/appGestionFinance/"; // Rediriger vers la page de redirection
+                        },
+                        error: function (xhr, status, error) {
+                            // Gérer les erreurs en cas de problème avec la demande AJAX
+                            console.error(error);
+                        }
+                    });
+                });
+            });
+        </script>
+    </header>
+
+
+
     <div id='contenu'>
         <h1>
             Coucou
@@ -75,7 +111,9 @@ if (isset($_SESSION['email'])) {
 
 
 
+
             <input type="submit" id="formenregistrer" name="formenregistrer" value="Enregistrer">
+
 
         </form>
         <br> <br>

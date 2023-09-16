@@ -3,6 +3,8 @@ $e = $db->prepare("SELECT id FROM utilisateurs WHERE email = :email");
 $e->execute(['email' => $_SESSION['email']]);
 $id = $e->fetch();
 
+include 'includes/depense.php';
+
 $qr = $db->prepare("SELECT * FROM depense WHERE id_utilisateurs = :id_utilisateurs");
 $qr->execute(['id_utilisateurs' => $id['id']]);
 $depense = $qr->fetch();
