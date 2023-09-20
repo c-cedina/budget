@@ -11,6 +11,13 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
+/* @media (max-width: 768px) {
+  #login {
+    font-size: xxx-large;
+    width: 90%;
+    height: 35%;
+  }
+} */
 
 /* Style pour le titre h2 */
 #login h2 {
@@ -34,6 +41,12 @@
   border-radius: 3px;
   font-size: 16px;
 }
+/* @media (max-width: 768px) {
+  #login input[type="email"],
+  #login input[type="password"] {
+    font-size: xxx-large;
+  }
+} */
 
 /* Style pour le bouton de soumission */
 #formlogin {
@@ -45,6 +58,7 @@
   font-size: 16px;
   cursor: pointer;
 }
+
 #login p {
   margin-top: 20px;
 }

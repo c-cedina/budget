@@ -12,7 +12,7 @@ if (isset($_SESSION['email'])) {
     </script>
     <header>
         <div id="deco">
-            <a href="logout.php">
+            <a href="https://gestiond-depense-50c701015e05.herokuapp.com/">
                 <button id="btnDeco" class="btn">Deconnexion</button>
             </a>
         </div>
@@ -39,10 +39,10 @@ if (isset($_SESSION['email'])) {
     </header>
 
 
-    <?php if ($somme_total_d_mois['valeur'] = 'null') {
+    <?php if ($somme_total_d_mois['valeur'] == 'null') {
         $somme_total_d_mois['valeur'] = '0';
     } ?>
-    <?php if ($somme_total_d['valeur'] = 'null') {
+    <?php if ($somme_total_d['valeur'] == 'null') {
         $somme_total_d['valeur'] = '0';
     } ?>
     <div id='contenu'>

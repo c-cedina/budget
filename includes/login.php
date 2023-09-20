@@ -51,5 +51,5 @@ if (isset($_POST['formlogin'])) {
 
 		<input type="submit" id="formlogin" name="formlogin" value="Se Connecter">
 	</form>
-	<p> vous n'avez pas de compte? <br>cliquez sur inscription si desssous </p>
+	<p> vous n'avez pas de compte? <br>Cliquez sur inscription si desssous </p>
 </div>

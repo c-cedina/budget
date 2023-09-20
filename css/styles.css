@@ -27,6 +27,11 @@ body {
   cursor: pointer;
   transition: box-shadow 0.3s ease;
 }
+/* @media (max-width: 768px) {
+  .btn {
+    font-size: xxx-large;
+  }
+} */
 
 /* Ajouter un effet d'ombre lorsque les boutons sont actifs */
 .btn.active {

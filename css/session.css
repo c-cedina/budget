@@ -95,7 +95,7 @@ input[type="submit"] {
 }
 
 /* Styles pour la mise en page mobile */
-@media (max-width: 768px) {
+@media (max-width: 950px) {
   #contenu,
   #ajtdepense {
     max-width: 90%;

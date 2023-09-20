@@ -104,5 +104,5 @@ if (isset($_POST['formsend'])) {
 
 		<input type="submit" name="formsend" id="formsend" value="S'inscrire">
 	</form>
-	<p> Vous avez de compte deja un compte? <br> cliquez sur connexion si desssous </p>
+	<p> Vous avez deja un compte? <br> Cliquez sur connexion si desssous </p>
 </div>
