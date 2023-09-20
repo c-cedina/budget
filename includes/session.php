@@ -26,7 +26,7 @@ if (isset($_SESSION['email'])) {
                         method: "POST",        // Vous pouvez utiliser POST ou GET selon votre configuration
                         success: function (data) {
                             // Actualiser la page pour que l'utilisateur soit déconnecté
-                            window.location.href = "http://localhost/appGestionFinance/"; // Rediriger vers la page de redirection
+                            window.location.href = "https://gestiond-depense-50c701015e05.herokuapp.com/"; // Rediriger vers la page de redirection
                         },
                         error: function (xhr, status, error) {
                             // Gérer les erreurs en cas de problème avec la demande AJAX
