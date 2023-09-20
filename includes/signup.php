@@ -79,23 +79,23 @@ if (isset($_POST['formsend'])) {
 <div id="signup" class="form-container">
 	<h2>Inscription</h2>
 	<form method="post">
-		<label for="nom">Nom :</label>
-		<input type="text" id="nom" name="nom" required><br><br>
 
-		<label for="prenom">Prénom :</label>
-		<input type="text" id="prenom" name="prenom" required><br><br>
+		<input type="text" id="nom" name="nom" placeholder="Nom" required>
 
-		<label for="email">Email :</label>
-		<input type="email" id="email" name="email" required><br><br>
 
-		<label for="cemail">Confirmation Email :</label>
-		<input type="email" id="cemail" name="cemail" required><br><br>
+		<input type="text" id="prenom" name="prenom" placeholder="Prenom" required>
 
-		<label for="password">Mot de passe :</label>
-		<input type="password" id="password" name="password" required><br><br>
 
-		<label for="cpassword">Confirmation Mot de passe :</label>
-		<input type="password" id="cpassword" name="cpassword" required><br><br>
+		<input type="email" id="email" name="email" placeholder="Email" required>
+
+
+		<input type="email" id="cemail" name="cemail" placeholder="Confirmation Email" required>
+
+
+		<input type="password" id="password" name="password" placeholder="Mot de passe" required>
+
+
+		<input type="password" id="cpassword" name="cpassword" placeholder="Confirmation Mot de passe" required><br><br>
 
 		<input type="submit" name="formsend" id="formsend" value="S'inscrire">
 	</form>

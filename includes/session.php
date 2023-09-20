@@ -45,84 +45,87 @@ if (isset($_SESSION['email'])) {
             Coucou
             <?= $_SESSION['prenom']; ?>
         </h1>
-        <p>
-            je t'attendais le rat
-        </p>
+        <div id="intro">
+            <p>
+                Je t'attendais le rat.
+            </p>
 
-        <p>
-            Tu as depensé
-            <?= $somme_total_d_mois['valeur'] ?>
-            € ce mois ci
-        </p>
+            <p>
+                Tu as depensé
+                <?= $somme_total_d_mois['valeur'] ?>
+                € ce mois-ci.
+            </p>
 
-        <p>
-            Tu as depensé
-            <?= $somme_total_d['valeur'] ?>
-            € au total <br>
-            Tu nous as rejoint la team des rats depuis le
-            <?= $_SESSION['date_creation'] ?>
-            <br><br>
+            <p>
+                Tu as depensé
+                <?= $somme_total_d['valeur'] ?>
+                € au total. <br>
+                Tu nous as rejoint la team des rats depuis le
+                <?= $_SESSION['date_creation'] ?>
+                <br><br>
+            </p>
+        </div>
 
-            <!-- formulaire recherche -->
+        <!-- formulaire recherche -->
+        <div id="formrp">
+            <form method="post">
+                je veux savoir combien j'ai dépensé au mois de
+                <select id="mois_dps" name="mois_dps">
 
-        <form method="post">
-            tu veux savoir combien as tu dépensé au mois de
-            <select id="mois_dps" name="mois_dps">
+                    <option value="01%">janvier</option>
+                    <option value="02%">fevrier</option>
+                    <option value="03%">mars</option>
+                    <option value="04%">avril</option>
+                    <option value="05%">mai</option>
+                    <option value="06%">juin</option>
+                    <option value="07%">juillet</option>
+                    <option value="08%">aout</option>
+                    <option value="09%">septembre</option>
+                    <option value="10%">octobre</option>
+                    <option value="11%">novembre</option>
+                    <option value="12%">decembre</option>
+                    <option value="%"> janvier à decembre (soit durant toute l'année)</option>
 
-                <option value="01%">janvier</option>
-                <option value="02%">fevrier</option>
-                <option value="03%">mars</option>
-                <option value="04%">avril</option>
-                <option value="05%">mai</option>
-                <option value="06%">juin</option>
-                <option value="07%">juillet</option>
-                <option value="08%">aout</option>
-                <option value="09%">septembre</option>
-                <option value="10%">octobre</option>
-                <option value="11%">novembre</option>
-                <option value="12%">decembre</option>
-                <option value="%"> n'importe quel mois</option>
+                </select>
+                en
+                <select id="annee_dps" name="annee_dps">
 
-            </select>
-            en
-            <select id="annee_dps" name="annee_dps">
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
 
-                <option value="2023">2023</option>
-                <option value="2022">2022</option>
-                <option value="2021">2021</option>
-                <option value="2020">2020</option>
+                </select>
+                dans la catégorie
+                <select id="categorie_dps" name="categorie_dps">
 
-            </select>
-            dans la catégorie
-            <select id="categorie_dps" name="categorie_dps">
+                    <option value="activité">activité</option>
+                    <option value="cadeaux">cadeaux</option>
+                    <option value="habit">habit</option>
+                    <option value="abonnements">abonnements</option>
+                    <option value="objet_numerique">objet Numérique</option>
+                    <option value="objet_quotidien">objet du Quotidien</option>
+                    <option value="nourriture">nourriture</option>
+                    <option value="transport">transport</option>
+                    <option value="%">sans connaitre la catégorie</option>
 
-                <option value="activité">activité</option>
-                <option value="cadeaux">cadeaux</option>
-                <option value="habit">habit</option>
-                <option value="abonnements">abonnements</option>
-                <option value="objet_numerique">objet Numérique</option>
-                <option value="objet_quotidien">objet du Quotidien</option>
-                <option value="nourriture">nourriture</option>
-                <option value="transport">transport</option>
-                <option value="%"> n'importe quel categorie</option>
+                </select>
+                et
+                <select id="achat_necessaire_dps" name="achat_necessaire_dps" required>
 
-            </select>
-            et
-            <select id="achat_necessaire_dps" name="achat_necessaire_dps" required>
+                    <option value="necessaire">Nécessaire</option>
+                    <option value="non_necessaire">non nécessaire</option>
+                    <option value="n%">sans connaitre la nécessité</option>
 
-                <option value="necessaire">Nécessaire</option>
-                <option value="non_necessaire">non nécessaire</option>
-                <option value="n%">sans connaitre la nécessité</option>
+                </select>
+                ?
 
-            </select>
-            ?
-
-            <input type="submit" id="formrenseignement" name="formrenseignement" value="Rechercher">
+                <input type="submit" id="formrenseignement" name="formrenseignement" value="Rechercher">
 
 
-        </form>
-        <br>
-
+            </form>
+            <br>
+        </div>
         <?php include 'includes/recherche_dps.php'; ?>
 
         <?php
@@ -130,11 +133,13 @@ if (isset($_SESSION['email'])) {
         if ($rp['valeur'] == '') {
             $rp['valeur'] = '0';
         }
+        $phrase = '';
         if ($annee_dps != '?') {
             $annee_dps = substr($annee_dps, 0, 4);
+            $phrase = "Ne t'inquiete pas le rat je te le dis tout de suite. <br>";
         }
         if ($categorie_dps == '%') {
-            $categorie_dps = "n'importe quel categorie";
+            $categorie_dps = "sans connaitre la catégorie";
         }
         if ($achat_necessaire_dps == 'n%') {
             $achat_necessaire_dps = "sans connaitre la nécessité";
@@ -180,22 +185,31 @@ if (isset($_SESSION['email'])) {
             $mois_dps = 'decembre';
         }
         if ($mois_dps == '%') {
-            $mois_dps = "n'importe lequel mois";
+            $mois_dps = "janvier à decembre (soit durant toute l'année)";
         }
+        // Fin des calcule des
         ?>
-        tu as dépensé
 
-        <?= $rp['valeur'] ?>
-        € au mois de
-        <?= $mois_dps ?>
-        en
-        <?= $annee_dps ?>
-        dans la catégorie
-        <?= $categorie_dps ?>
-        et
-        <?= $achat_necessaire_dps ?>
 
-        </p>
+
+
+        <div id="rp">
+            <p>
+                <?= $phrase ?>
+                Tu as dépensé
+
+                <?= $rp['valeur'] ?>
+                € au mois de
+                <?= $mois_dps ?>
+                en
+                <?= $annee_dps ?>
+                dans la catégorie
+                <?= $categorie_dps ?>
+                et
+                <?= $achat_necessaire_dps ?>
+
+            </p>
+        </div>
 
     </div>
 
@@ -206,15 +220,17 @@ if (isset($_SESSION['email'])) {
         <form method="post">
 
             <label for="titre_depense">Titre de la dépense :</label>
-            <input type="text" id="titre_depense" name="titre_depense" required><br><br>
+            <input type="text" id="titre_depense" name="titre_depense" placeholder="ecran plat full hd" required><br><br>
 
-            <label for="commentaire_depense">Commentaire :</label>
-            <textarea id="commentaire_depense" name="commentaire_depense" rows="4" cols="50"></textarea><br><br>
+            <!-- <label for="commentaire_depense">Commentaire :</label>
+            <textarea id="commentaire_depense" name="commentaire_depense" rows="4" cols="50"></textarea><br><br> -->
 
 
             <label for="montant">Montant de la dépense :</label>
-            <input type="text" id="montant" name="montant" required pattern="^[0-9]+(\.[0-9]{0,1,2})?$">
-            <span class="error"> exemple de format ecriture "12.34" ou bien "12.3" ou "12" </span><br><br>
+            <input type="text" id="montant" name="montant" placeholder="578.80" required
+                pattern="^[0-9]+(\.[0-9]{0,1,2})?$"><br>
+            <span class="error"> format d'ecritur sous forme xxx.xx <br>
+                de format ecriture "12.34" ou bien "12.3" ou "12" </span><br><br>
 
 
             <label for="categorie">Catégorie de dépense :</label>
