@@ -26,10 +26,10 @@ if (isset($_POST['formenregistrer'])) {
         }
 
 
-        $q = $db->prepare("INSERT INTO depense(titre,commentaire,montant,categorie,necessite,date,id_utilisateurs) VALUES(:titre,:commentaire,:montant,:categorie,:necessite,:date,:id_utilisateurs)");
+        $q = $db->prepare("INSERT INTO depense(titre,montant,categorie,necessite,date,id_utilisateurs) VALUES(:titre,:montant,:categorie,:necessite,:date,:id_utilisateurs)");
         $q->execute([
             'titre' => $titre_depense,
-            'commentaire' => $commentaire_depense,
+
             'montant' => $montant,
             'categorie' => $categorie,
             'necessite' => $achat_necessaire,

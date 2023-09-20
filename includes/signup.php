@@ -8,14 +8,14 @@
 if (isset($_POST['formsend'])) {
 
 	?>
-	<script>alert("debut ")</script>
+	<!-- <script>alert("debut ")</script> -->
 	<?php
 	extract($_POST);
 
 
 	if (!empty($password) && !empty($email) && !empty($cpassword)) {
 
-		if ($email == $cemail)
+		if ($email == $cemail) {
 
 			if ($password == $cpassword) {
 
@@ -58,6 +58,11 @@ if (isset($_POST['formsend'])) {
 				<script>alert("mot de passe different")</script>
 				<?php
 			}
+		} else {
+			?>
+			<script>alert("email different")</script>
+			<?php
+		}
 
 
 	}

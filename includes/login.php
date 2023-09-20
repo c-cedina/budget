@@ -27,7 +27,7 @@ if (isset($_POST['formlogin'])) {
 
 			} else {
 				?>
-				<script>alert("erreur email")</script>
+				<script>alert("erreur mot de passe")</script>
 				<?php
 			}
 

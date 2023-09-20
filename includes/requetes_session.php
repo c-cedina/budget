@@ -13,7 +13,7 @@ $qsm = $db->prepare("SELECT SUM(montant)valeur FROM depense WHERE id_utilisateur
 $qsm->execute(['id_utilisateurs' => $id['id']]);
 $somme_total_d = $qsm->fetch();
 // // while ($depense = $qr->fetch()) {
-// //     // var_dump($depense);
+var_dump($somme_total_d);
 // }
 $ce_mois = date('Y-m') . '%';
 $qsm_mois = $db->prepare("SELECT SUM(montant)valeur FROM depense WHERE id_utilisateurs = :id_utilisateurs and date LIKE :mois ");

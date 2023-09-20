@@ -39,7 +39,12 @@ if (isset($_SESSION['email'])) {
     </header>
 
 
-
+    <?php if ($somme_total_d_mois['valeur'] = 'null') {
+        $somme_total_d_mois['valeur'] = '0';
+    } ?>
+    <?php if ($somme_total_d['valeur'] = 'null') {
+        $somme_total_d['valeur'] = '0';
+    } ?>
     <div id='contenu'>
         <h1>
             Coucou
@@ -69,7 +74,7 @@ if (isset($_SESSION['email'])) {
         <!-- formulaire recherche -->
         <div id="formrp">
             <form method="post">
-                je veux savoir combien j'ai dépensé au mois de
+                Je veux savoir combien j'ai dépensé au mois de
                 <select id="mois_dps" name="mois_dps">
 
                     <option value="01%">janvier</option>
@@ -105,6 +110,7 @@ if (isset($_SESSION['email'])) {
                     <option value="abonnements">abonnements</option>
                     <option value="objet_numerique">objet Numérique</option>
                     <option value="objet_quotidien">objet du Quotidien</option>
+                    <option value="frais_banquaire">frais banquaire</option>
                     <option value="nourriture">nourriture</option>
                     <option value="transport">transport</option>
                     <option value="%">sans connaitre la catégorie</option>
@@ -235,11 +241,12 @@ if (isset($_SESSION['email'])) {
 
             <label for="categorie">Catégorie de dépense :</label>
             <select id="categorie" name="categorie">
-                <option value="transport">Transport</option>
-                <option value="nourriture">Nourriture</option>
                 <option value="activité">Activité</option>
                 <option value="cadeaux">Cadeaux</option>
+                <option value="transport">Transport</option>
+                <option value="nourriture">Nourriture</option>
                 <option value="habit">Habit</option>
+                <option value="frais_banquaire">frais banquaire</option>
                 <option value="abonnements">Abonnements</option>
                 <option value="objet_numerique">Objet Numérique</option>
                 <option value="objet_quotidien">Objet du Quotidien</option>
