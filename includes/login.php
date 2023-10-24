@@ -10,7 +10,7 @@ if (isset($_POST['formlogin'])) {
 		$q = $db->prepare("SELECT * FROM utilisateurs WHERE email = :email");
 		$q->execute(['email' => $lemail]);
 		$result = $q->fetch();
-		// var_dump($result);
+		//var_dump($result);
 
 
 		if ($result == true) {

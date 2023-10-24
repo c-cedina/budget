@@ -155,3 +155,7 @@ input[type="submit"] {
   margin-top: 9px;
   border-radius: 25px;
 }
+
+#toute_depense {
+  display: none;
+}

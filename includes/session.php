@@ -59,12 +59,17 @@ if (isset($_SESSION['email'])) {
                 Tu as depensé
                 <?= $somme_total_d_mois['valeur'] ?>
                 € ce mois-ci.
+
             </p>
 
             <p>
                 Tu as depensé
                 <?= $somme_total_d['valeur'] ?>
                 € au total. <br>
+                Tu as enregistré
+                <?= $nbdepense ?>
+                dépense au total
+                <br>
                 Tu nous as rejoint la team des rats depuis le
                 <?= $_SESSION['date_creation'] ?>
                 <br><br>
@@ -181,10 +186,10 @@ if (isset($_SESSION['email'])) {
         if ($mois_dps == '09%') {
             $mois_dps = 'septembre';
         }
-        if ($mois_dps == '010%') {
+        if ($mois_dps == '10%') {
             $mois_dps = 'octobre';
         }
-        if ($mois_dps == '011%') {
+        if ($mois_dps == '11%') {
             $mois_dps = 'novembre';
         }
         if ($mois_dps == '12%') {
@@ -217,8 +222,98 @@ if (isset($_SESSION['email'])) {
             </p>
         </div>
 
-    </div>
 
+
+        <div id="formrp">
+            <!-- conaitre depense du mois
+           
+            <form method="post">
+                Je veux voir mes dépenses du mois
+                <select id="mois_dps" name="mois_dps">
+
+                    <option value="01%">janvier</option>
+                    <option value="02%">fevrier</option>
+                    <option value="03%">mars</option>
+                    <option value="04%">avril</option>
+                    <option value="05%">mai</option>
+                    <option value="06%">juin</option>
+                    <option value="07%">juillet</option>
+                    <option value="08%">aout</option>
+                    <option value="09%">septembre</option>
+                    <option value="10%">octobre</option>
+                    <option value="11%">novembre</option>
+                    <option value="12%">decembre</option>
+
+
+                </select>
+                en
+                <select id="annee_dps" name="annee_dps">
+
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+
+                </select>
+                <input type="submit" id="formrenseignement" name="formrenseignement" value="Rechercher">
+
+
+
+            </form> -->
+
+            <button id="afficherButton">Afficher toutes les dépenses</button>
+            <button id="supprimerButton">Supprimer le paragraphe</button>
+
+            <script>
+                // Fonction pour afficher le paragraphe
+                document.getElementById('afficherButton').addEventListener('click', function () {
+                    var p = document.getElementById('toute_depense');
+                    p.style.display = 'block';
+                });
+
+                // Fonction pour supprimer le paragraphe
+                document.getElementById('supprimerButton').addEventListener('click', function () {
+                    var p = document.getElementById('toute_depense');
+                    p.style.display = 'none';
+                });
+            </script>
+
+            <p id="toute_depense">
+                <?php
+                $j = 0;
+                $i = $nbdepense_toute - 1;
+                while ($j < $nbdepense_toute) {
+                    ?>
+                    Achat au nom de
+                    "
+                    <?= $titre[$i] ?>" <br>
+                    du montant de
+                    "
+                    <?= $montant[$i] ?>"
+                    € à la date de
+                    "
+                    <?= $date_depense[$i] ?>" <br>
+                    de categorie
+                    "
+                    <?= $categorie[$i] ?>"
+                    et
+                    "
+                    <?= $necessite[$i] ?>"
+                    .
+
+                    <br>
+                    <br>
+                    <?php
+                    $i--;
+                    $j++;
+                }
+
+                ?>
+
+            </p>
+        </div>
+
+    </div>
 
     <!-- Formulaire ajout depense -->
     <div id=ajtdepense>
