@@ -51,20 +51,23 @@ if (isset($_POST['formenregistrer'])) {
 
 
 
-        ?>
+?>
 
 
-        <script>alert("dépense envoyée")</script>
-        <?php
+        <script>
+            alert("dépense envoyée")
+        </script>
+    <?php
 
 
 
     } else {
-        ?>
-        <script>alert("tout les champs ne sont pas remplies ")</script>
-        <?php
+    ?>
+        <script>
+            alert("tout les champs ne sont pas remplies ")
+        </script>
+<?php
     }
-
 }
 
 

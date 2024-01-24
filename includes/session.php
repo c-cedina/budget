@@ -3,7 +3,7 @@
 if (isset($_SESSION['email'])) {
 
     include 'includes/requetes_session.php';
-    ?>
+?>
     <script>
         signupDiv.style.display = "none";
         loginDiv.style.display = "none";
@@ -18,17 +18,17 @@ if (isset($_SESSION['email'])) {
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
-            $(document).ready(function () {
-                $("#btnDeco").click(function () {
+            $(document).ready(function() {
+                $("#btnDeco").click(function() {
                     // Envoi d'une demande AJAX au serveur pour supprimer les variables de session
                     $.ajax({
                         url: "includes/deconnexion.php", // Le script serveur qui gère la suppression des variables de session
-                        method: "POST",        // Vous pouvez utiliser POST ou GET selon votre configuration
-                        success: function (data) {
+                        method: "POST", // Vous pouvez utiliser POST ou GET selon votre configuration
+                        success: function(data) {
                             // Actualiser la page pour que l'utilisateur soit déconnecté
                             window.location.href = "https://gestiond-depense-50c701015e05.herokuapp.com/"; // Rediriger vers la page de redirection
                         },
-                        error: function (xhr, status, error) {
+                        error: function(xhr, status, error) {
                             // Gérer les erreurs en cas de problème avec la demande AJAX
                             console.error(error);
                         }
@@ -100,6 +100,7 @@ if (isset($_SESSION['email'])) {
                 en
                 <select id="annee_dps" name="annee_dps">
 
+                    <option value="2024">2024</option>
                     <option value="2023">2023</option>
                     <option value="2022">2022</option>
                     <option value="2021">2021</option>
@@ -158,7 +159,7 @@ if (isset($_SESSION['email'])) {
 
 
         // Mise en place des mois
-    
+
         if ($mois_dps == '01%') {
             $mois_dps = 'janvier';
         }
@@ -266,13 +267,13 @@ if (isset($_SESSION['email'])) {
 
             <script>
                 // Fonction pour afficher le paragraphe
-                document.getElementById('afficherButton').addEventListener('click', function () {
+                document.getElementById('afficherButton').addEventListener('click', function() {
                     var p = document.getElementById('toute_depense');
                     p.style.display = 'block';
                 });
 
                 // Fonction pour supprimer le paragraphe
-                document.getElementById('supprimerButton').addEventListener('click', function () {
+                document.getElementById('supprimerButton').addEventListener('click', function() {
                     var p = document.getElementById('toute_depense');
                     p.style.display = 'none';
                 });
@@ -283,7 +284,7 @@ if (isset($_SESSION['email'])) {
                 $j = 0;
                 $i = $nbdepense_toute - 1;
                 while ($j < $nbdepense_toute) {
-                    ?>
+                ?>
                     Achat au nom de
                     "
                     <?= $titre[$i] ?>" <br>
@@ -303,7 +304,7 @@ if (isset($_SESSION['email'])) {
 
                     <br>
                     <br>
-                    <?php
+                <?php
                     $i--;
                     $j++;
                 }
@@ -328,8 +329,7 @@ if (isset($_SESSION['email'])) {
 
 
             <label for="montant">Montant de la dépense :</label>
-            <input type="text" id="montant" name="montant" placeholder="578.80" required
-                pattern="^[0-9]+(\.[0-9]{0,1,2})?$"><br>
+            <input type="text" id="montant" name="montant" placeholder="578.80" required pattern="^[0-9]+(\.[0-9]{0,1,2})?$"><br>
             <span class="error"> format d'ecritur sous forme xxx.xx <br>
                 de format ecriture "12.34" ou bien "12.3" ou "12" </span><br><br>
 
@@ -362,7 +362,10 @@ if (isset($_SESSION['email'])) {
             <label for="date_personnelle">Date personnalisée :</label>
             <input type="date" id="date_personnelle_input" name="date_personnelle_input" disabled>
 
-            <script>         document.getElementById("date_personnelle").addEventListener("change", function () { document.getElementById("date_personnelle_input").disabled = !this.checked; });
+            <script>
+                document.getElementById("date_personnelle").addEventListener("change", function() {
+                    document.getElementById("date_personnelle_input").disabled = !this.checked;
+                });
             </script>
             <br><br>
 
@@ -377,7 +380,7 @@ if (isset($_SESSION['email'])) {
 
     </div>
 
-    <?php
+<?php
 }
 
 
