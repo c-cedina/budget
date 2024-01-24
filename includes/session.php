@@ -57,14 +57,14 @@ if (isset($_SESSION['email'])) {
 
             <p>
                 Tu as depensé
-                <?= $somme_total_d_mois['valeur'] ?>
+                <?= round($somme_total_d_mois['valeur'],2) ?>
                 € ce mois-ci.
 
             </p>
 
             <p>
                 Tu as depensé
-                <?= $somme_total_d['valeur'] ?>
+                <?= round($somme_total_d['valeur'],2) ?>
                 € au total. <br>
                 Tu as enregistré
                 <?= $nbdepense ?>
@@ -79,9 +79,9 @@ if (isset($_SESSION['email'])) {
         <!-- formulaire recherche -->
         <div id="formrp">
             <form method="post">
-                Je veux savoir combien j'ai dépensé au mois de
+                Je veux savoir combien j'ai dépensé a la periode de
                 <select id="mois_dps" name="mois_dps">
-
+                    <option value="%"> l'année (toute l'année)</option>
                     <option value="01%">janvier</option>
                     <option value="02%">fevrier</option>
                     <option value="03%">mars</option>
@@ -94,7 +94,7 @@ if (isset($_SESSION['email'])) {
                     <option value="10%">octobre</option>
                     <option value="11%">novembre</option>
                     <option value="12%">decembre</option>
-                    <option value="%"> janvier à decembre (soit durant toute l'année)</option>
+                    
 
                 </select>
                 en
@@ -110,6 +110,7 @@ if (isset($_SESSION['email'])) {
                 dans la catégorie
                 <select id="categorie_dps" name="categorie_dps">
 
+                    <option value="%">sans la catégorie</option>
                     <option value="activité">activité</option>
                     <option value="cadeaux">cadeaux</option>
                     <option value="habit">habit</option>
@@ -119,15 +120,16 @@ if (isset($_SESSION['email'])) {
                     <option value="frais_banquaire">frais banquaire</option>
                     <option value="nourriture">nourriture</option>
                     <option value="transport">transport</option>
-                    <option value="%">sans connaitre la catégorie</option>
+                    
 
                 </select>
-                et
+                et la nécessité
                 <select id="achat_necessaire_dps" name="achat_necessaire_dps" required>
 
+                    <option value="n%">sans la nécessité</option>
                     <option value="necessaire">Nécessaire</option>
                     <option value="non_necessaire">non nécessaire</option>
-                    <option value="n%">sans connaitre la nécessité</option>
+                    
 
                 </select>
                 ?
