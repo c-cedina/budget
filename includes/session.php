@@ -57,14 +57,14 @@ if (isset($_SESSION['email'])) {
 
             <p>
                 Tu as depensé
-                <?= round($somme_total_d_mois['valeur'],2) ?>
+                <?= round($somme_total_d_mois['valeur'], 2) ?>
                 € ce mois-ci.
 
             </p>
 
             <p>
                 Tu as depensé
-                <?= round($somme_total_d['valeur'],2) ?>
+                <?= round($somme_total_d['valeur'], 2) ?>
                 € au total. <br>
                 Tu as enregistré
                 <?= $nbdepense ?>
@@ -94,7 +94,7 @@ if (isset($_SESSION['email'])) {
                     <option value="10%">octobre</option>
                     <option value="11%">novembre</option>
                     <option value="12%">decembre</option>
-                    
+
 
                 </select>
                 en
@@ -120,7 +120,7 @@ if (isset($_SESSION['email'])) {
                     <option value="frais_banquaire">frais banquaire</option>
                     <option value="nourriture">nourriture</option>
                     <option value="transport">transport</option>
-                    
+
 
                 </select>
                 et la nécessité
@@ -129,7 +129,7 @@ if (isset($_SESSION['email'])) {
                     <option value="n%">sans la nécessité</option>
                     <option value="necessaire">Nécessaire</option>
                     <option value="non_necessaire">non nécessaire</option>
-                    
+
 
                 </select>
                 ?
@@ -145,8 +145,11 @@ if (isset($_SESSION['email'])) {
         <?php
         // mise en place des valeurs
         if ($rp['valeur'] == '') {
-            $rp['valeur'] = '0';
+            $rp['valeur'] = 0;
+        } else {
+            $rp['valeur'] = floatval($rp['valeur']);
         }
+
         $phrase = '';
         if ($annee_dps != '?') {
             $annee_dps = substr($annee_dps, 0, 4);
@@ -212,7 +215,7 @@ if (isset($_SESSION['email'])) {
                 <?= $phrase ?>
                 Tu as dépensé
 
-                <?= $rp['valeur'] ?>
+                <?= round($rp['valeur'], 2) ?>
                 € au mois de
                 <?= $mois_dps ?>
                 en

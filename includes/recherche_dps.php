@@ -1,4 +1,7 @@
 <?php
+
+
+// Rechercher la depense 
 $rp['valeur'] = '?';
 
 $mois_dps = '?';
@@ -24,14 +27,16 @@ if (isset($_POST['formrenseignement'])) {
 
 
 
-        $e = $db->prepare("SELECT id 
+        $e = $db->prepare(
+            "SELECT id 
         FROM utilisateurs
         WHERE email = :email"
         );
         $e->execute(['email' => $_SESSION['email']]);
         $id = $e->fetch();
         if ($categorie_dps == '%') {
-            $qrp = $db->prepare("SELECT SUM(montant)valeur FROM depense
+            $qrp = $db->prepare(
+                "SELECT SUM(montant)valeur FROM depense
             WHERE id_utilisateurs = :id_utilisateurs 
             and date like :dateDps 
             and necessite like :necessite"
@@ -44,11 +49,6 @@ if (isset($_POST['formrenseignement'])) {
 
 
             ]);
-
-
-
-
-
         } else {
             $qrp = $db->prepare("SELECT SUM(montant)valeur FROM depense
          WHERE id_utilisateurs = :id_utilisateurs 
@@ -66,10 +66,9 @@ if (isset($_POST['formrenseignement'])) {
 
 
             ]);
-
         }
 
-        $rp = $qrp->fetch();
+        $rp =  $qrp->fetch();
         // var_dump($rp);
 
 
@@ -77,4 +76,3 @@ if (isset($_POST['formrenseignement'])) {
 
     }
 }
-?>
