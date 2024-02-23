@@ -68,7 +68,7 @@ if (isset($_POST['formrenseignement'])) {
             ]);
         }
 
-        $rp =  $qrp->fetch();
+        $rp = $qrp->fetch();
         // var_dump($rp);
 
 

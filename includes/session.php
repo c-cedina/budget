@@ -145,9 +145,10 @@ if (isset($_SESSION['email'])) {
         <?php
         // mise en place des valeurs
         if ($rp['valeur'] == '') {
-            $rp['valeur'] = 0;
-        } else {
+            $rp['valeur'] = '0';
+        } elseif ($rp['valeur'] != '' && $rp['valeur'] != '?') {
             $rp['valeur'] = floatval($rp['valeur']);
+            $rp['valeur'] = round($rp['valeur'], 2);
         }
 
         $phrase = '';
@@ -215,7 +216,7 @@ if (isset($_SESSION['email'])) {
                 <?= $phrase ?>
                 Tu as dépensé
 
-                <?= round($rp['valeur'], 2) ?>
+                <?= $rp['valeur'] ?>
                 € au mois de
                 <?= $mois_dps ?>
                 en
