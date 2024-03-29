@@ -1,3 +1,16 @@
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/styles.css ">
+    <link rel="stylesheet" type="text/css" href="css/session.css ">
+    <link rel="stylesheet" type="text/css" href="css/login.css ">
+    <link rel="stylesheet" type="text/css" href="css/signup.css ">
+    <title>Formulaire de Dépenses</title>
+
+</head>
+
+
 <?php
 include 'includes/database.php';
 
@@ -74,8 +87,8 @@ $date_depense_upd = $day_depense_upd . '-' . $month_depense_upd . '-' . $year_de
 
 
 <div id=ajtdepense>
-    <h1>Modification de Dépenses numero <?= $id_depense_url ?></h1>
-    <form method="post">
+    <h1>Modification de la Dépenses <?= $id_depense_url ?></h1>
+    <form id="update_dps" method="post">
         <label for="titre_depense">Titre de la dépense :</label>
         <input type="text" id="titre_depense" name="titre_depense" value="<?= $titre[$indice] ?>" placeholder="ecran plat full hd" required><br><br>
 
@@ -85,10 +98,8 @@ $date_depense_upd = $day_depense_upd . '-' . $month_depense_upd . '-' . $year_de
 
         <label for="montant">Montant de la dépense :</label>
         <input type="text" id="montant" name="montant" value="<?= $montant[$indice] ?>" placeholder="578.80" required pattern="^[0-9]+(\.[0-9]{0,1,2})?$"><br>
-        <span class="error"> format d'écriture sous forme xxx.xx <br>
-            de format ecriture "12.34" ou bien "12.3" ou "12" </span><br><br>
-
-
+        <span class="error"> format d'écriture sous forme xxx.xx avec un point <br>
+            Exemples "12" ou bien "12.3" ou "12.34" </span><br><br>
         <label for="categorie">Catégorie de dépense :</label>
         <select id="categorie" name="categorie">
             <option value="activité">Activité</option>
@@ -100,14 +111,14 @@ $date_depense_upd = $day_depense_upd . '-' . $month_depense_upd . '-' . $year_de
             <option value="abonnements">Abonnements</option>
             <option value="objet_numerique">Objet Numérique</option>
             <option value="objet_quotidien">Objet du Quotidien</option>
-        </select>
+        </select><br>
         Anciennement : <?= $categorie[$indice] ?><br><br>
 
         <label for="achat_necessaire">Achat nécessaire ou non :</label>
         <select id="achat_necessaire" name="achat_necessaire" required>
             <option value="necessaire">Nécessaire</option>
             <option value="non_necessaire">Non nécessaire</option>
-        </select>
+        </select> <br>
         Anciennement : <?= $necessite[$indice] ?><br><br>
 
 
@@ -123,17 +134,15 @@ $date_depense_upd = $day_depense_upd . '-' . $month_depense_upd . '-' . $year_de
             document.getElementById("date_personnelle").addEventListener("change", function() {
                 document.getElementById("date_personnelle_input").disabled = !this.checked;
             });
-        </script>
+        </script><br>
         Anciennement : <?= $date_depense_upd ?>
         <br><br>
-
-
-
-
         <input type="submit" id="formupdate" name="formupdate" value="Modifier">
-
-
     </form>
     <br>
-
+    <script>
+        document.getElementById('update_dps').onsubmit = function() {
+            return confirm('Êtes-vous sûr de vouloir faire cette Modification ?');
+        }
+    </script>
 </div>

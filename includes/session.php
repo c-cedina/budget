@@ -309,8 +309,8 @@ if (isset($_SESSION['email'])) {
                     et
                     "<?= $necessite[$i] ?>". <br>
                     <?php $session = base64_encode($_SESSION['email']) ?>
-                    <a href="modification.php?depense=<?= $i + 1 ?>&session=<?= $session ?>" target="_blank">Modifier la dépense <?= $i + 1 ?> </a>
-
+                    <a href="modification.php?depense=<?= $i + 1 ?>&session=<?= $session ?>">Modifier la dépense <?= $i + 1 ?> </a> <br>
+                    <a href="suppression.php?depense=<?= $i + 1 ?>&session=<?= $session ?>">Supprimer la dépense <?= $i + 1 ?> </a>
                     <br>
                     <br>
                 <?php
@@ -328,7 +328,7 @@ if (isset($_SESSION['email'])) {
     <!-- Formulaire ajout depense -->
     <div id=ajtdepense>
         <h1>Enregistrement de Dépenses</h1>
-        <form method="post">
+        <form id="post_dps" method="post">
 
             <label for="titre_depense">Titre de la dépense :</label>
             <input type="text" id="titre_depense" name="titre_depense" placeholder="ecran plat full hd" required><br><br>
@@ -386,7 +386,11 @@ if (isset($_SESSION['email'])) {
 
         </form>
         <br>
-
+        <script>
+            document.getElementById('post_dps').onsubmit = function() {
+                return confirm('Êtes-vous sûr de vouloir faire cette Modification ?');
+            }
+        </script>
     </div>
 
 <?php
