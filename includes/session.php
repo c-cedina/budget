@@ -292,21 +292,24 @@ if (isset($_SESSION['email'])) {
                 while ($j < $nbdepense_toute) {
                 ?>
                     Achat au nom de
-                    "
-                    <?= $titre[$i] ?>" <br>
+                    "<?= $titre[$i] ?>" <br>
                     du montant de
-                    "
-                    <?= $montant[$i] ?>"
+                    "<?= $montant[$i] ?>"
                     € à la date de
-                    "
-                    <?= $date_depense[$i] ?>" <br>
+                    <?php
+                    // creer cette fonction to do
+                    $year_depense_get = substr($date_depense[$i], 0, 4);
+                    $month_depense_get = substr($date_depense[$i], 5, 2);
+                    $day_depense_get = substr($date_depense[$i], 8, 2);
+                    $date_depense_get[$i] = $day_depense_get . '-' . $month_depense_get . '-' . $year_depense_get;
+                    ?>
+                    "<?= $date_depense_get[$i] ?>" <br>
                     de categorie
-                    "
-                    <?= $categorie[$i] ?>"
+                    "<?= $categorie[$i] ?>"
                     et
-                    "
-                    <?= $necessite[$i] ?>"
-                    .
+                    "<?= $necessite[$i] ?>". <br>
+                    <?php $session = base64_encode($_SESSION['email']) ?>
+                    <a href="modification.php?depense=<?= $i + 1 ?>&session=<?= $session ?>" target="_blank">Modifier la dépense <?= $i + 1 ?> </a>
 
                     <br>
                     <br>

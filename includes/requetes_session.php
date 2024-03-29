@@ -17,7 +17,7 @@ $qr_toute->execute(['id_utilisateurs' => $id['id']]);
 $nbdepense_toute = $qr_toute->rowCount();
 $i = 0;
 while ($depense_toute = $qr_toute->fetch()) {
-
+    $id_depense[$i] = $depense_toute['id'];
     $titre[$i] = $depense_toute['titre'];
     $montant[$i] = $depense_toute['montant'];
     $necessite[$i] = $depense_toute['necessite'];
