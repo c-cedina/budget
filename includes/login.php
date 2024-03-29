@@ -2,17 +2,12 @@
 
 
 if (isset($_POST['formlogin'])) {
-
 	extract($_POST);
-
 	if (!empty($lemail) && !empty($lpassword)) {
-
 		$q = $db->prepare("SELECT * FROM utilisateurs WHERE email = :email");
 		$q->execute(['email' => $lemail]);
 		$result = $q->fetch();
 		//var_dump($result);
-
-
 		if ($result == true) {
 			// le compte existe bien 
 			if (password_verify($lpassword, $result['password'])) {
@@ -24,17 +19,19 @@ if (isset($_POST['formlogin'])) {
 				$month_c = substr($result['date_creation'], 5, 2);
 				$day_c = substr($result['date_creation'], 8, 2);
 				$_SESSION['date_creation'] = $day_c . '-' . $month_c . '-' . $year_c;
-
 			} else {
-				?>
-				<script>alert("erreur mot de passe")</script>
-				<?php
+?>
+				<script>
+					alert("erreur mot de passe")
+				</script>
+			<?php
 			}
-
 		} else {
 			?>
-			<script>alert("erreur email")</script>
-			<?php
+			<script>
+				alert("erreur email")
+			</script>
+<?php
 		}
 	}
 }

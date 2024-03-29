@@ -27,9 +27,6 @@ while ($depense_toute = $qr_toute->fetch()) {
     // var_dump($depense_toute);
     $i++;
 }
-
-
-
 // afficher la sommes des depenses totals 
 $qsm = $db->prepare("SELECT SUM(montant)valeur FROM depense WHERE id_utilisateurs = :id_utilisateurs");
 $qsm->execute(['id_utilisateurs' => $id['id']]);

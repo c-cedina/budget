@@ -269,7 +269,7 @@ if (isset($_SESSION['email'])) {
             </form> -->
 
             <button id="afficherButton">Afficher toutes les dépenses</button>
-            <button id="supprimerButton">Supprimer le paragraphe</button>
+            <button id="supprimerButton">Enlever</button>
 
             <script>
                 // Fonction pour afficher le paragraphe
