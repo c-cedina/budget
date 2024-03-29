@@ -7,10 +7,6 @@ if (isset($_POST['formenregistrer'])) {
 
     if (!empty($titre_depense) && !empty($montant)) {
 
-
-
-
-
         if (isset($_POST['formenregistrer'])) {
             // Autres traitements de formulaire ici...
 
@@ -57,10 +53,9 @@ if (isset($_POST['formenregistrer'])) {
         <script>
             alert("dépense envoyée")
         </script>
+
     <?php
-
-
-
+        header("Refresh: 5");
     } else {
     ?>
         <script>
