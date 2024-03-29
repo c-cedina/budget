@@ -1,4 +1,4 @@
 <?php
-session_start();
+
 session_unset();
-header("Refresh: 5");
+header("Refresh: 1");

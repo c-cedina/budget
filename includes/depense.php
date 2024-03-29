@@ -55,7 +55,7 @@ if (isset($_POST['formenregistrer'])) {
         </script>
 
     <?php
-        header("Refresh: 5");
+        header("Refresh: 1");
     } else {
     ?>
         <script>
