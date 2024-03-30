@@ -388,7 +388,7 @@ if (isset($_SESSION['email'])) {
         <br>
         <script>
             document.getElementById('post_dps').onsubmit = function() {
-                return confirm('Êtes-vous sûr de vouloir faire cette Modification ?');
+                return confirm('Êtes-vous sûr de vouloir inscrire cette dépenses ?');
             }
         </script>
     </div>
