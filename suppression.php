@@ -84,12 +84,17 @@ if ($result == true) {
         <br><br>
         <form id="delete_dps" method="post">
             <input type="submit" id="formdelete" name="formdelete" value="Supprimer">
-        </form>
+        </form><br><br>
+        <p>Pour retourner a l'accueille cliquer si-dessous</p><br>
+        <a href="https://gestiond-depense-50c701015e05.herokuapp.com/">
+            <h1> Accueille </h1>
+        </a>
         <script>
             document.getElementById('delete_dps').onsubmit = function() {
                 return confirm('Êtes-vous sûr de vouloir faire cette Supression ?');
             }
         </script>
+
     </div>
 
 <?php
@@ -98,7 +103,7 @@ if ($result == true) {
 ?>
     <div id=ajtdepense>
 
-        <h2>Cette depense n'existe plus </h2>
-    </div>
-<?php
+        <h2>Cette depense n'existe plus </h2><br>
+        <a href="https://gestiond-depense-50c701015e05.herokuapp.com/">Accueille</a>
+    <?php
 }
