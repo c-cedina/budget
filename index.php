@@ -12,7 +12,8 @@
     <link rel="stylesheet" type="text/css" href="css/session.css ">
     <link rel="stylesheet" type="text/css" href="css/login.css ">
     <link rel="stylesheet" type="text/css" href="css/signup.css ">
-    <title>Formulaire de Dépenses</title>
+    <title>AppFinance</title>
+    <link rel="icon" type="image/x-icon" href="image/logo.ico">
 
 </head>
 
